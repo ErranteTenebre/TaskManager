@@ -1,0 +1,577 @@
+@charset "UTF-8";
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@400;500;700;900&display=swap');
+
+:root {
+    --container-width: 1400px;
+    --main-background: linear-gradient(#2E367D,#3C2459);
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body, html {
+    width:100%;
+    min-height: 100%;
+}
+
+a, a:link, a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+aside, nav, footer, header, section, main {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+ul, ul li {
+    list-style: none;
+    padding: 0;
+}
+
+img {
+    vertical-align: top;
+}
+
+address {
+    font-style: normal;
+}
+
+input, textarea, button, select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+button, input[type=submit] {
+    display: inline-block;
+    box-shadow: none;
+    background-color: transparent;
+    background: none;
+    cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+legend {
+    display: block;
+}
+
+.link {
+    position: relative;
+    font-family: 'Poppins',sans-serif;
+    font-size: 24px;
+    color: #CCC;
+}
+
+.link span {
+    color: inherit;
+}
+
+.link:hover {
+    color: #FFF;
+}
+
+.selected span {
+    color: #F0F0F0;
+}
+
+.selected::after {
+    position: absolute;
+    margin-top: 2px;
+    width: 100%;
+    content: "";
+    display: block;
+    border: 1px solid yellow;
+}
+
+.input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #F0F0F0;
+}
+
+.label {
+    font-family: 'Poppins',sans-serif;
+    color: #F0F0F0;
+    font-size: 20px;
+}
+
+.select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    overflow: hidden;
+}
+
+
+.select:hover {
+    border-color: #555;
+}
+
+
+.select:active {
+    border-color: #333;
+}
+
+
+.select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.select option {
+    padding: 10px;
+    color: black;
+}
+
+.select option:checked {
+    background-color: #f0f0f0;
+}
+
+.select:focus option:checked {
+    color: white; 
+    background-color: #2E367D; 
+}
+
+body {
+    background-color: #080710;
+}
+
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -30px;
+    bottom: -80px;
+}   
+
+
+.error-message {
+    font-family: 'Poppins',sans-serif;
+    color: red;
+    font-size: 14px;
+  }
+
+  .auth {
+    height: 100%;
+}
+
+.auth__container {
+    height: 580px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}::placeholder{
+    color: #e5e5e5;
+}
+
+.register__container{
+    height: 620px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}::placeholder{
+    color: #e5e5e5;
+}
+
+.auth__links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.auth__form {
+    margin: 40px 0 0 0;
+}
+
+.auth__field {
+    display: flex;
+    flex-direction: column;
+}
+
+    .auth__field:not(:first-child) {
+        margin: 20px 0 0 0;
+    }
+
+.auth__field-input {
+    margin: 20px 0 0 0;
+}
+
+.submit-button{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width:400px) {
+    .auth__links{
+        display: block;
+    }
+}
+
+@media (max-width:400px) {
+    .auth__links{
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .auth__container {
+        width: 250px;
+    }
+    .register__container{
+        width: 250px;
+    }
+}
+
+.tasks__content{
+    padding: 40px 40px;
+}
+
+
+/* Стили для контейнера списка задач */
+.task-list {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center; /* Размещаем карточку по центру */
+    column-gap: 30px; /* Отступ между колонками */
+    row-gap: 40px; /* Отступ между рядами */
+    margin: 0 auto;
+}
+
+@media (max-width: 1200px){
+    .task-list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px){
+    .task-list{
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Стиль для выпадающего меню с опциями */
+.options-dropdown {
+    display: none; /* Изначально скрыто */
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    background-color: #fff; /* Возвращаем белый цвет */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 1;
+}
+
+/* Стиль для пункта меню */
+.option {
+    color: #333; /* Возвращаем черный цвет текста */
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+/* Стиль для троеточия-триггера */
+.options-trigger {
+    cursor: pointer;
+    font-size: 20px;
+    color: white; /* Возвращаем черный цвет текста */
+}
+
+/* Стиль для контейнера меню */
+.options-menu {
+    height: 50px;
+    position: absolute;
+    right: 10px;
+    display: inline-block;
+}
+
+/* При наведении на контейнер меню показываем выпадающее меню */
+.options-menu:hover .options-dropdown {
+    display: block;
+}
+
+/* При наведении на пункт меню меняем его цвет фона */
+.option:hover {
+    background-color: #eee; /* Изменяем цвет фона при наведении */
+}
+/* Стиль карточки для задачи с темным фоном */
+.task-card {
+    position: relative;
+    background-color: #333; /* Цвет фона - темный */
+    color: #fff; /* Цвет текста - светлый */
+    border-radius: 8px; /* Скругленные углы */
+    padding: 20px; /* Внутренний отступ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+    height: 250px;
+    width: 100%;
+}
+
+/* Стиль для названия задачи */
+.task-title {
+    font-size: 30px; /* Размер шрифта */
+    font-weight: bold; /* Жирный текст */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+/* Стиль для описания задачи */
+.task-description {
+    font-size: 14px; /* Размер шрифта */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+/* Стиль для конечной даты */
+.task-due-date {
+    font-size: 12px; /* Размер шрифта */
+    color: #ccc; /* Цвет текста для даты */
+}
+
+/* Медиа-запрос для адаптации на более узких экранах */
+@media only screen and (max-width: 768px) {
+    .task-card {
+        width: 100%; /* Занимает всю доступную ширину на узких экранах */
+    }
+}
+
+.sidebar:hover {
+    width: 250px;
+}
+
+.sidebar {
+    background: #212121;
+    border-right: 1px solid #e5e5e5;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    overflow: hidden;
+    transition: width 0.05s linear;
+    z-index: 1000;
+}
+
+.sidebar__list {
+    margin: 7px 0;
+}
+
+.sidebar__logout {
+    margin: 7px 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.sidebar__item {
+    position: relative;
+    display: block;
+    width: 250px;
+}
+
+    .sidebar__item a {
+        position: relative;
+        display: table;
+        border-collapse: collapse;
+        border-spacing: 0;
+        color: #999;
+        font-family: arial;
+        font-size: 14px;
+        text-decoration: none;
+        -webkit-transform: translateZ(0) scale(1, 1);
+        -webkit-transition: all 0.1s linear;
+        transition: all 0.1s linear;
+    }
+
+.sidebar__icon {
+    position: relative;
+    display: table-cell;
+    width: 60px;
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+.sidebar .sidebar-text {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    width: 190px;
+    font-family: "Titillium Web", sans-serif;
+    height: 100%;
+}
+
+.sidebar {
+    user-select: none;
+}
+
+.sidebar ul, .sidebar li {
+    outline: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.pagination li {
+    margin-right: 5px;
+}
+
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.pagination a:hover {
+    background-color: red;
+}
+
+.pagination span {
+    cursor: default;
+}
+
+.pagination .active a {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+
+.pagination__link--active{
+    background-color:blue;
+}
+
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    background: #212121;
+    height: 80px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.header__container
+{
+    padding: 20px 40px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content:space-between;
+}
+
+.filter-panel {
+    height: 40px;
+    display: flex;
+}
+
+.filter-panel__button {
+    margin: 0 10px 0 0;
+}
+
+.filter-panel__list {
+    display: none;
+}
+
+.filter-panel__item:not(:first-child) {
+    margin: 0 0 0 10px;
+}
+
+.filter-panel__list--visible {
+    display: flex;
+}
+
+
+
+
