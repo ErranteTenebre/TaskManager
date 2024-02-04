@@ -3,7 +3,6 @@ using SimpleTODOLesson.Models;
 using SimpleTODOLesson.Infrastructure.Repositories;
 using SimpleTODOLesson.Helpers;
 using Microsoft.AspNetCore.CookiePolicy;
-using MyApi.Validation;
 
 namespace MyApi
 {
