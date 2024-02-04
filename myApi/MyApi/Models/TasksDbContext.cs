@@ -25,7 +25,7 @@ namespace SimpleTODOLesson.Models
                 .HasOne(t => t.Status)
                 .WithMany()
                 .HasForeignKey(t => t.StatusId)
-                .OnDelete(DeleteBehavior.Restrict); // В данном случае, если удаляется статус задачи, то не будет удалена сама задача
+                .OnDelete(DeleteBehavior.Restrict); 
 
             modelBuilder.ApplyConfiguration(new UserSeed());
              modelBuilder.ApplyConfiguration(new TaskStatusSeed());

@@ -99,8 +99,8 @@ namespace SimpleTODOLesson.Controllers
             Response.Cookies.Delete("jwt", new CookieOptions
             {
                 HttpOnly = true,
-                Secure = true,  // Установите в true, если используется HTTPS
-                SameSite = SameSiteMode.None // Измените на нужное значение (Lax, Strict, None)
+                Secure = true,  
+                SameSite = SameSiteMode.None 
             });
 
 

@@ -39,7 +39,7 @@ const navigate = useNavigate();
                 </li>
             );
         } else {
-            return null; // Возвращайте null в случае отсутствия пользователя
+            return null;
         }
     };
 

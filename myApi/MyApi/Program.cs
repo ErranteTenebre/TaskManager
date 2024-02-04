@@ -15,7 +15,6 @@ namespace MyApi
 
             builder.Services.AddControllersWithViews((options) =>
             {
-              //  options.Filters.Add(new ValidationFilterAttribute());
             });
             builder.Services.AddHttpContextAccessor();
 
@@ -25,9 +24,9 @@ namespace MyApi
 
             builder.Services.Configure<CookiePolicyOptions>(options =>
             {
-                options.MinimumSameSitePolicy = SameSiteMode.Strict; // Укажите нужное значение
-                options.HttpOnly = HttpOnlyPolicy.Always; // Укажите нужное значение
-                options.Secure = CookieSecurePolicy.Always; // Укажите нужное значение
+                options.MinimumSameSitePolicy = SameSiteMode.Strict; 
+                options.HttpOnly = HttpOnlyPolicy.Always; 
+                options.Secure = CookieSecurePolicy.Always;
             });
 
             builder.Services.AddCors();

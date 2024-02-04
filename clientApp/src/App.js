@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes} from 'react-router-dom';
 import axios from 'axios';
 import TasksPage from './Pages/TasksPage';
 import AuthPage from './Pages/AuthPage';
@@ -36,13 +36,10 @@ function App() {
 
   return (
     <Routes>
-      {/* Добавьте маршрут для страницы задач */}
       <Route path="/" element={<TasksPage user={user} setUser={setUser} />} />
 
-      {/* Добавьте маршрут для страницы аутентификации */}
       <Route path="/auth" element={<AuthPage setUser={setUser}/>} />
 
-      {/* Добавьте маршрут для страницы регистрации */}
       <Route path="/register" element={<RegisterPage />} />
     </Routes>
   );

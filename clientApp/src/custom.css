@@ -9,8 +9,8 @@
 }
 
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     border: none;
 }
 
@@ -21,7 +21,7 @@
 }
 
 body, html {
-    width:100%;
+    width: 100%;
     min-height: 100%;
 }
 
@@ -86,7 +86,7 @@ legend {
 
 .link {
     position: relative;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 24px;
     color: #CCC;
 }
@@ -116,7 +116,7 @@ legend {
     display: block;
     height: 50px;
     width: 100%;
-    background-color: rgba(255,255,255,0.07);
+    background-color: rgba(255, 255, 255, 0.07);
     border-radius: 3px;
     padding: 0 10px;
     font-size: 20px;
@@ -125,7 +125,7 @@ legend {
 }
 
 .label {
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #F0F0F0;
     font-size: 20px;
 }
@@ -140,22 +140,18 @@ legend {
     overflow: hidden;
 }
 
-
 .select:hover {
     border-color: #555;
 }
-
 
 .select:active {
     border-color: #333;
 }
 
-
 .select:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
-
 
 .select option {
     padding: 10px;
@@ -175,21 +171,23 @@ body {
     background-color: #080710;
 }
 
-.background{
+.background {
     width: 430px;
     height: 520px;
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
 }
-.background .shape{
+
+.background .shape {
     height: 200px;
     width: 200px;
     position: absolute;
     border-radius: 50%;
 }
-.shape:first-child{
+
+.shape:first-child {
     background: linear-gradient(
         #1845ad,
         #23a2f6
@@ -197,7 +195,8 @@ body {
     left: -80px;
     top: -80px;
 }
-.shape:last-child{
+
+.shape:last-child {
     background: linear-gradient(
         to right,
         #ff512f,
@@ -205,51 +204,46 @@ body {
     );
     right: -30px;
     bottom: -80px;
-}   
-
+}
 
 .error-message {
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: red;
     font-size: 14px;
-  }
+}
 
-  .auth {
+.auth {
     height: 100%;
 }
 
 .auth__container {
     height: 580px;
     width: 400px;
-    background-color: rgba(255,255,255,0.13);
+    background-color: rgba(255, 255, 255, 0.13);
     position: absolute;
-    transform: translate(-50%,-50%);
-        top: 50%;
-        left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
-}::placeholder{
-    color: #e5e5e5;
-}
-
-.register__container{
-    height: 620px;
-    width: 400px;
-    background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     padding: 50px 35px;
-}::placeholder{
-    color: #e5e5e5;
+}
+
+.register__container {
+    height: 620px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.13);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
 }
 
 .auth__links {
@@ -266,15 +260,15 @@ body {
     flex-direction: column;
 }
 
-    .auth__field:not(:first-child) {
-        margin: 20px 0 0 0;
-    }
+.auth__field:not(:first-child) {
+    margin: 20px 0 0 0;
+}
 
 .auth__field-input {
     margin: 20px 0 0 0;
 }
 
-.submit-button{
+.submit-button {
     margin-top: 50px;
     width: 100%;
     background-color: #ffffff;
@@ -286,81 +280,75 @@ body {
     cursor: pointer;
 }
 
-@media (max-width:400px) {
-    .auth__links{
+@media (max-width: 400px) {
+    .auth__links {
         display: block;
     }
 }
 
-@media (max-width:400px) {
-    .auth__links{
+@media (max-width: 400px) {
+    .auth__links {
         flex-direction: column;
         justify-content: flex-start;
     }
     .auth__container {
         width: 250px;
     }
-    .register__container{
+    .register__container {
         width: 250px;
     }
 }
 
-.tasks__content{
+.tasks__content {
     padding: 40px 40px;
 }
 
-
-/* Стили для контейнера списка задач */
 .task-list {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
-    justify-items: center; /* Размещаем карточку по центру */
-    column-gap: 30px; /* Отступ между колонками */
-    row-gap: 40px; /* Отступ между рядами */
+    justify-items: center;
+    column-gap: 30px;
+    row-gap: 40px;
     margin: 0 auto;
 }
 
-@media (max-width: 1200px){
-    .task-list{
+@media (max-width: 1200px) {
+    .task-list {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 768px){
-    .task-list{
+@media (max-width: 768px) {
+    .task-list {
         grid-template-columns: 1fr;
     }
 }
 
-/* Стиль для выпадающего меню с опциями */
 .options-dropdown {
-    display: none; /* Изначально скрыто */
+    display: none;
     position: absolute;
     top: 30px;
     left: 0px;
-    background-color: #fff; /* Возвращаем белый цвет */
+    background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 10px;
     z-index: 1;
 }
 
-/* Стиль для пункта меню */
 .option {
-    color: #333; /* Возвращаем черный цвет текста */
+    color: #333;
     cursor: pointer;
     margin-bottom: 8px;
 }
 
-/* Стиль для троеточия-триггера */
 .options-trigger {
     cursor: pointer;
     font-size: 20px;
-    color: white; /* Возвращаем черный цвет текста */
+    color: white;
 }
 
-/* Стиль для контейнера меню */
 .options-menu {
     height: 50px;
     position: absolute;
@@ -368,50 +356,44 @@ body {
     display: inline-block;
 }
 
-/* При наведении на контейнер меню показываем выпадающее меню */
 .options-menu:hover .options-dropdown {
     display: block;
 }
 
-/* При наведении на пункт меню меняем его цвет фона */
 .option:hover {
-    background-color: #eee; /* Изменяем цвет фона при наведении */
+    background-color: #eee;
 }
-/* Стиль карточки для задачи с темным фоном */
+
 .task-card {
     position: relative;
-    background-color: #333; /* Цвет фона - темный */
-    color: #fff; /* Цвет текста - светлый */
-    border-radius: 8px; /* Скругленные углы */
-    padding: 20px; /* Внутренний отступ */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+    background-color: #333;
+    color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 250px;
     width: 100%;
 }
 
-/* Стиль для названия задачи */
 .task-title {
-    font-size: 30px; /* Размер шрифта */
-    font-weight: bold; /* Жирный текст */
-    margin-bottom: 10px; /* Отступ снизу */
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-/* Стиль для описания задачи */
 .task-description {
-    font-size: 14px; /* Размер шрифта */
-    margin-bottom: 10px; /* Отступ снизу */
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
-/* Стиль для конечной даты */
 .task-due-date {
-    font-size: 12px; /* Размер шрифта */
-    color: #ccc; /* Цвет текста для даты */
+    font-size: 12px;
+    color: #ccc;
 }
 
-/* Медиа-запрос для адаптации на более узких экранах */
 @media only screen and (max-width: 768px) {
     .task-card {
-        width: 100%; /* Занимает всю доступную ширину на узких экранах */
+        width: 100%;
     }
 }
 
@@ -448,19 +430,19 @@ body {
     width: 250px;
 }
 
-    .sidebar__item a {
-        position: relative;
-        display: table;
-        border-collapse: collapse;
-        border-spacing: 0;
-        color: #999;
-        font-family: arial;
-        font-size: 14px;
-        text-decoration: none;
-        -webkit-transform: translateZ(0) scale(1, 1);
-        -webkit-transition: all 0.1s linear;
-        transition: all 0.1s linear;
-    }
+.sidebar__item a {
+    position: relative;
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: #999;
+    font-family: arial;
+    font-size: 14px;
+    text-decoration: none;
+    -webkit-transform: translateZ(0) scale(1, 1);
+    -webkit-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
 
 .sidebar__icon {
     position: relative;
@@ -525,9 +507,8 @@ body {
     color: #fff;
 }
 
-
-.pagination__link--active{
-    background-color:blue;
+.pagination__link--active {
+    background-color: blue;
 }
 
 .header {
@@ -540,15 +521,14 @@ body {
     border-bottom: 1px solid #e5e5e5;
 }
 
-.header__container
-{
+.header__container {
     padding: 20px 40px;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center; 
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
 .filter-panel {
@@ -571,7 +551,3 @@ body {
 .filter-panel__list--visible {
     display: flex;
 }
-
-
-
-
