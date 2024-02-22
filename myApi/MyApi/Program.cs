@@ -1,3 +1,4 @@
+using System.Text;
 using Microsoft.EntityFrameworkCore;
 using SimpleTODOLesson.Models;
 using SimpleTODOLesson.Infrastructure.Repositories;
@@ -12,9 +13,7 @@ namespace MyApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllersWithViews((options) =>
-            {
-            });
+            builder.Services.AddControllers();
             builder.Services.AddHttpContextAccessor();
 
             builder.Services.AddTransient<ITaskService, TaskRepository>();
@@ -46,9 +45,18 @@ namespace MyApi
                       .AllowCredentials()
                   );
 
-            app.MapDefaultControllerRoute();
-
             app.UseAuthorization();
+
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path == "/")
+                {
+                    await context.Response.WriteAsync("Server is started", Encoding.UTF8);
+                    return;
+                }
+
+                await next(context);
+            });
 
             app.Run();
         }
