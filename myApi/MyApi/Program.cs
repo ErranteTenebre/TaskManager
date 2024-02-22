@@ -58,6 +58,8 @@ namespace MyApi
                 await next(context);
             });
 
+            app.MapDefaultControllerRoute();
+
             app.Run();
         }
     }

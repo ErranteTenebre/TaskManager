@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const handleTaskDelete =async (taskId, updateTasks) =>{
-    const response = await axios.delete(`https://localhost:7002/api/task/${taskId}`);
+    const response = await axios.delete(`/api/task/${taskId}`);
 
     if (response.status === 200) console.log("Запись успешно удалена");
 
@@ -12,7 +12,7 @@ const handleTaskDelete =async (taskId, updateTasks) =>{
 }
 
 const getTasks = async() =>{
-    const res = await axios.get("https://localhost:7002/api/task");
+    const res = await axios.get("/api/task");
     const data = res.data;
 
     return data;

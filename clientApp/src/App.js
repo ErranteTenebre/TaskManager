@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://localhost:7002/api/user', {
+        const response = await axios.get('/api/user', {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         });

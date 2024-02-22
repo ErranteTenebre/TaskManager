@@ -9,7 +9,7 @@ const navigate = useNavigate();
 
     const logout = async (event) =>{
         event.preventDefault();
-        await fetch('https://localhost:7002/api/logout', {
+        await fetch('/api/logout', {
             method: "POST",
             headers: {
                 'Content-Type':'application/json',

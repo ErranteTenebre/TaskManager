@@ -13,7 +13,7 @@ const RegisterPage = () => {
         event.preventDefault();
     
         try {
-          const response = await axios.post("https://localhost:7002/api/register", formDataRef.current, {
+          const response = await axios.post("/api/register", formDataRef.current, {
             headers: { 'Content-Type': 'application/json' }
           });
     

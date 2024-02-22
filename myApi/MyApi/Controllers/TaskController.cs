@@ -42,6 +42,8 @@ namespace SimpleTODOLesson.Controllers
         {
             return _taskService.Get(id);
         }
+
+        [HttpGet]
         public IEnumerable<Task> GetAll()
         {
             return _taskService.GetAll();

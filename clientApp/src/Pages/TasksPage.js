@@ -52,7 +52,7 @@ const TasksPage = ({user, setUser}) => {
     useEffect(() => {
         const getTasks = async () => {
             setLoading(true);
-            const res = await axios.get("https://localhost:7002/api/task");
+            const res = await axios.get("/api/task");
             const data = res.data;
             setTasks(data);
             setLoading(false);

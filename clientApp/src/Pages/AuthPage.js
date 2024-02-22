@@ -28,7 +28,7 @@ const AuthPage = ({setUser}) => {
         event.preventDefault();
 
         try {
-            const response = await axios.post('https://localhost:7002/api/login', formData, {
+            const response = await axios.post('/api/login', formData, {
             headers: { 'Content-Type': 'application/json' },
             withCredentials: true,
         });
@@ -47,7 +47,7 @@ const AuthPage = ({setUser}) => {
     };
 
     const getUser =async () =>{
-        const response = await axios.get("https://localhost:7002/api/user",{
+        const response = await axios.get("/api/user",{
             'withCredentials': true,
         });
 
