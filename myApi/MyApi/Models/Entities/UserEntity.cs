@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SimpleTODOLesson.Models
+namespace MyApi.Models.Entities
 {
-    public class User
+    public class UserEntity
     {
         public int Id { get; set; }
         public string Pass { get; set; }

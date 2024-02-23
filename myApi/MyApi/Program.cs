@@ -1,9 +1,9 @@
 using System.Text;
 using Microsoft.EntityFrameworkCore;
-using SimpleTODOLesson.Models;
-using SimpleTODOLesson.Infrastructure.Repositories;
-using SimpleTODOLesson.Helpers;
 using Microsoft.AspNetCore.CookiePolicy;
+using MyApi.Helpers;
+using MyApi.Infrastructure.Repositories;
+using MyApi.Models;
 
 namespace MyApi
 {

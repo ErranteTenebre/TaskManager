@@ -1,13 +1,12 @@
-﻿using MyApi.Dtos;
-using Task = SimpleTODOLesson.Models.Task;
-namespace SimpleTODOLesson.Infrastructure.Repositories
+﻿using MyApi.Models.Entities;
+namespace MyApi.Infrastructure.Repositories
 {
     public interface ITaskService
     {
-        Task Get(int id);
-        IEnumerable<Task> GetAll();
-        Task Create(Task task);
-        void Update(Task task);
+        TaskEntity Get(int id);
+        IEnumerable<TaskEntity> GetAll();
+        TaskEntity Create(TaskEntity task);
+        void Update(TaskEntity task);
         void Delete(int id);
     }
 }

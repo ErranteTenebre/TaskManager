@@ -1,4 +1,4 @@
-namespace SimpleTODOLesson.Dtos
+namespace MyApi.Dtos
 { 
     public class LoginDto
     {

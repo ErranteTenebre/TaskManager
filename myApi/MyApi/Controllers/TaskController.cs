@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using Task =  SimpleTODOLesson.Models.Task;
-using SimpleTODOLesson.Infrastructure.Repositories;
 using MyApi.Dtos;
+using MyApi.Infrastructure.Repositories;
+using MyApi.Models.Entities;
 
-namespace SimpleTODOLesson.Controllers
+namespace MyApi.Controllers
 {
     [Route("/api/[controller]")]
     [ApiController]
@@ -21,7 +20,7 @@ namespace SimpleTODOLesson.Controllers
         {
             if (!ModelState.IsValid) return BadRequest();
 
-            Task task = new Task()
+            TaskEntity task = new TaskEntity()
             {
                 Title = model.Title,
                 Description = model.Description,
@@ -33,18 +32,18 @@ namespace SimpleTODOLesson.Controllers
             return Created("success", _taskService.Create(task));
         }
         [HttpPatch]
-        public void Update(Task model)
+        public void Update(TaskEntity model)
         {
             _taskService.Update(model);
         }
         [HttpGet("{id}")]   
-        public Task Get(int id)
+        public TaskEntity Get(int id)
         {
             return _taskService.Get(id);
         }
 
         [HttpGet]
-        public IEnumerable<Task> GetAll()
+        public IEnumerable<TaskEntity> GetAll()
         {
             return _taskService.GetAll();
         }

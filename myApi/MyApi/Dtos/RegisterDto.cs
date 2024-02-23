@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace SimpleTODOLesson.Dtos
+namespace MyApi.Dtos
 {
     public class RegisterDto
     {

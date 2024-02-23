@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SimpleTODOLesson.Models
+namespace MyApi.Models.Entities
 {
-    public class Task
+    public class TaskEntity
     {
         [Key]
         public int Id { get; set; }
@@ -11,9 +11,9 @@ namespace SimpleTODOLesson.Models
         public DateTime EndDate { get; set; }
 
         public int UserId { get; set; }
-        public User User { get; set; }
+        public UserEntity UserEntity { get; set; }
 
-        public int StatusId { get;set; }
-        public TaskStatus Status { get; set; }  
+        public int StatusId { get; set; }
+        public TaskStatusEntity StatusEntity { get; set; }
     }
 }

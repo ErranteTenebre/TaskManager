@@ -1,18 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using SimpleTODOLesson.Helpers;
-using SimpleTODOLesson.Infrastructure.Repositories;
-using SimpleTODOLesson.Models;
-using SimpleTODOLesson.Dtos;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
+using MyApi.Dtos;
+using MyApi.Helpers;
+using MyApi.Infrastructure.Repositories;
+using MyApi.Models.Entities;
 
-namespace SimpleTODOLesson.Controllers
+namespace MyApi.Controllers
 {
     [Route("api")]
     [ApiController]
@@ -37,13 +30,13 @@ namespace SimpleTODOLesson.Controllers
             }
 
 
-            User user = new User
+            UserEntity userEntity = new UserEntity
             {
                 Login = dto.Login,
                 Pass = dto.Pass,
             };
 
-            return Created("success", _repository.Create(user));    
+            return Created("success", _repository.Create(userEntity));    
         }
 
         [HttpPost("login")]
@@ -72,7 +65,7 @@ namespace SimpleTODOLesson.Controllers
                 message = "success"
             });
         }
-        [HttpGet("user")]
+        [HttpGet("userEntity")]
         public IActionResult User()
         {
             try

@@ -1,9 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using SimpleTODOLesson.Models;
-using static SimpleTODOLesson.Infrastructure.Repositories.UserRepository;
+﻿using MyApi.Models;
+using MyApi.Models.Entities;
 
-namespace SimpleTODOLesson.Infrastructure.Repositories
+namespace MyApi.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
@@ -14,20 +12,20 @@ namespace SimpleTODOLesson.Infrastructure.Repositories
             _context = context;
         }
 
-        public User Create(User user)
+        public UserEntity Create(UserEntity userEntity)
         {
-            _context.Users.Add(user);
-            user.Id = _context.SaveChanges();
+            _context.Users.Add(userEntity);
+            userEntity.Id = _context.SaveChanges();
 
-            return user;
+            return userEntity;
         }
 
-        public User GetById(int id)
+        public UserEntity GetById(int id)
         {
             return _context.Users.FirstOrDefault(u => u.Id == id);
         }
 
-        public User GetByLogin(string login)
+        public UserEntity GetByLogin(string login)
         {
             return _context.Users.FirstOrDefault(u => u.Login == login);
         }

@@ -1,10 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyApi.Dtos;
-using SimpleTODOLesson.Models;
-using Task = SimpleTODOLesson.Models.Task;
+using MyApi.Models;
+using MyApi.Models.Entities;
 
 
-namespace SimpleTODOLesson.Infrastructure.Repositories
+namespace MyApi.Infrastructure.Repositories
 {
     public class TaskRepository : ITaskService
     {
@@ -13,7 +12,7 @@ namespace SimpleTODOLesson.Infrastructure.Repositories
         {
             _dbContext = dbContext;
         }
-        public Task Create(Task model)
+        public TaskEntity Create(TaskEntity model)
         {
             _dbContext.Tasks.Add(model);
 
@@ -24,7 +23,7 @@ namespace SimpleTODOLesson.Infrastructure.Repositories
 
         public void Delete(int id)
         {
-            Task task = Get(id);
+            TaskEntity task = Get(id);
 
             if (task == null) return;
 
@@ -33,25 +32,25 @@ namespace SimpleTODOLesson.Infrastructure.Repositories
             _dbContext.SaveChanges();
         }
 
-        public Task Get(int id)
+        public TaskEntity Get(int id)
         {
-            Task? model = _dbContext.Tasks.FirstOrDefault(m => m.Id == id);
+            TaskEntity? model = _dbContext.Tasks.FirstOrDefault(m => m.Id == id);
 
             return model;
         }
 
-        public IEnumerable<Task> GetAll()
+        public IEnumerable<TaskEntity> GetAll()
         {
-            List<Task> tasks = _dbContext.Tasks
-                .Include(t => t.User)
-                .Include(t => t.Status)
+            List<TaskEntity> tasks = _dbContext.Tasks
+                .Include(t => t.UserEntity)
+                .Include(t => t.StatusEntity)
                 .ToList();
             return tasks;
         }
 
-        public void Update(Task model)
+        public void Update(TaskEntity model)
         {
-            Task? modelToUpdate = _dbContext.Tasks.FirstOrDefault(t => t.Id == model.Id);
+            TaskEntity? modelToUpdate = _dbContext.Tasks.FirstOrDefault(t => t.Id == model.Id);
 
             if (modelToUpdate == null) return;
 

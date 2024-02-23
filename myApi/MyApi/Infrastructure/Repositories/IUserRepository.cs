@@ -1,11 +1,11 @@
-﻿using SimpleTODOLesson.Models;
+﻿using MyApi.Models.Entities;
 
-namespace SimpleTODOLesson.Infrastructure.Repositories
+namespace MyApi.Infrastructure.Repositories
 {
     public interface IUserRepository
     {
-        User Create(User user);
-        User GetByLogin(string login);
-        User GetById(int id);
+        UserEntity Create(UserEntity userEntity);
+        UserEntity GetByLogin(string login);
+        UserEntity GetById(int id);
     }
 }

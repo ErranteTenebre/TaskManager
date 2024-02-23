@@ -1,41 +1,28 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyApi.Infrastructure.EntitiesCongiruration;
+using MyApi.Infrastructure.EntitiesConfigurations;
+using MyApi.Infrastructure.SeedData;
+using MyApi.Models.Entities;
 
-namespace SimpleTODOLesson.Models
+namespace MyApi.Models;
+
+public class TasksManagerDbContext : DbContext
 {
-    public class TasksManagerDbContext : DbContext
+    public TasksManagerDbContext(DbContextOptions<TasksManagerDbContext> options) : base(options)
     {
-        public TasksManagerDbContext(DbContextOptions<TasksManagerDbContext> options) : base(options)
-        {
-
-        }
-
-        public DbSet<Task> Tasks { get; set; }
-        public DbSet<User> Users { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Task>()
-             .HasOne(t => t.User)
-             .WithMany()
-             .HasForeignKey(t => t.UserId)
-             .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<Task>()
-                .HasOne(t => t.Status)
-                .WithMany()
-                .HasForeignKey(t => t.StatusId)
-                .OnDelete(DeleteBehavior.Restrict); 
-
-            modelBuilder.ApplyConfiguration(new UserSeed());
-             modelBuilder.ApplyConfiguration(new TaskStatusSeed());
-            modelBuilder.ApplyConfiguration(new TaskSeed());
-
-            base.OnModelCreating(modelBuilder);
-
-
-        }
     }
 
+    public DbSet<TaskEntity> Tasks { get; set; }
+    public DbSet<UserEntity> Users { get; set; }
+    public DbSet<TaskStatusEntity> TaskStatuses { get; set; }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new TaskConfiguration());
+
+        modelBuilder.ApplyConfiguration(new UserSeed());
+        modelBuilder.ApplyConfiguration(new TaskStatusSeed());
+        modelBuilder.ApplyConfiguration(new TaskSeed());
+
+        base.OnModelCreating(modelBuilder);
+    }
 }

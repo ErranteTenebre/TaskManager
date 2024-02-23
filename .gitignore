@@ -56,3 +56,6 @@ Desktop.ini
 
 # Windows shortcuts
 *.lnk
+
+# Visual Studio files
+.vs/
