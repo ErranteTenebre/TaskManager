@@ -1,7 +1,7 @@
 ﻿using MyApi.Models.Entities;
 namespace MyApi.Infrastructure.Repositories
 {
-    public interface ITaskService
+    public interface ITaskRepository
     {
         TaskEntity Get(int id);
         IEnumerable<TaskEntity> GetAll();

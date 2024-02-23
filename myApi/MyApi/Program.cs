@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.CookiePolicy;
 using MyApi.Helpers;
 using MyApi.Infrastructure.Repositories;
+using MyApi.Infrastructure.Services;
 using MyApi.Models;
 
 namespace MyApi
@@ -11,39 +12,53 @@ namespace MyApi
     {
         public static void Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
+            ConfigureServices(builder);
+
+            WebApplication app = builder.Build();
+
+            ConfigureRequestLifetime(app);
+
+            app.Run();
+        }
+
+        private static void ConfigureServices(WebApplicationBuilder builder)
+        {
             builder.Services.AddControllers();
             builder.Services.AddHttpContextAccessor();
 
-            builder.Services.AddTransient<ITaskService, TaskRepository>();
-            builder.Services.AddTransient<IUserRepository, UserRepository>();
-            builder.Services.AddTransient<JwtService>();
+            builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
             builder.Services.Configure<CookiePolicyOptions>(options =>
             {
-                options.MinimumSameSitePolicy = SameSiteMode.Strict; 
-                options.HttpOnly = HttpOnlyPolicy.Always; 
+                options.MinimumSameSitePolicy = SameSiteMode.Strict;
+                options.HttpOnly = HttpOnlyPolicy.Always;
                 options.Secure = CookieSecurePolicy.Always;
             });
 
-            builder.Services.AddCors();
+            builder.Services.ConfigureRepositories();
+            builder.Services.ConfigureAuthorization();
+            builder.Services.ConfigureEntityServices();
+
 
             builder.Services.AddDbContext<TasksManagerDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+        }
 
-            var app = builder.Build();
 
+        private static void ConfigureRequestLifetime(WebApplication app)
+        {
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseCors(options => options
-                      .WithOrigins(new[] { "http://localhost:3000", "http://localhost:8080", "http://localhost:4200" })
-                      .AllowAnyHeader()
-                      .AllowAnyMethod()
-                      .AllowCredentials()
-                  );
+                .WithOrigins(new[] { "http://localhost:3000"})
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials()
+            );
 
             app.UseAuthorization();
 
@@ -59,8 +74,6 @@ namespace MyApi
             });
 
             app.MapDefaultControllerRoute();
-
-            app.Run();
         }
     }
 }

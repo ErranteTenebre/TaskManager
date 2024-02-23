@@ -9,8 +9,8 @@ namespace MyApi.Controllers
     [ApiController]
     public class TaskController : Controller
     {
-        private ITaskService _taskService;
-        public TaskController(ITaskService taskService)
+        private ITaskRepository _taskService;
+        public TaskController(ITaskRepository taskService)
         {
             _taskService = taskService;
         }

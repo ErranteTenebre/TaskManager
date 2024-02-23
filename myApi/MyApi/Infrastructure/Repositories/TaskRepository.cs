@@ -5,7 +5,7 @@ using MyApi.Models.Entities;
 
 namespace MyApi.Infrastructure.Repositories
 {
-    public class TaskRepository : ITaskService
+    public class TaskRepository : ITaskRepository
     {
         private readonly TasksManagerDbContext _dbContext;
         public TaskRepository(TasksManagerDbContext dbContext)
